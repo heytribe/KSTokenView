@@ -396,7 +396,7 @@ open class KSTokenField: UITextField {
       var lineNumber = 1
       let leftMargin = _leftViewRect().width
       let rightMargin = _rightViewRect().width
-      let tokenHeight = _font!.lineHeight + _paddingY!;
+      let tokenHeight: CGFloat = 30;//_font!.lineHeight + _paddingY!;
       
       var tokenPosition = CGPoint(x: _marginX!, y: _marginY!)
       
@@ -433,7 +433,9 @@ open class KSTokenField: UITextField {
       _scrollView.frame.size = CGSize(width: _scrollView.frame.width, height: positionY)
       scrollViewScrollToEnd()
       
-      return CGPoint(x: tokenPosition.x + leftMargin, y: positionY)
+//      return CGPoint(x: tokenPosition.x + leftMargin, y: positionY)
+        let caretY = (lineNumber == 1) ? _selfFrame!.size.height: tokenPosition.y + tokenHeight
+        return CGPoint(x: tokenPosition.x + leftMargin, y: caretY)
    }
    
    
