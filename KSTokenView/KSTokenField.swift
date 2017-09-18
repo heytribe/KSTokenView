@@ -84,8 +84,8 @@ open class KSTokenField: UITextField {
    /// default is grayColor()
    var placeHolderColor: UIColor = UIColor.gray
    
-   /// default is 120.0. After maximum limit is reached, tokens starts scrolling vertically
-   var maximumHeight: CGFloat = 120.0
+   /// default is 110.0. After maximum limit is reached, tokens starts scrolling vertically
+   var maximumHeight: CGFloat = 110.0
    
    /// default is nil
    override open var placeholder: String? {
@@ -434,7 +434,7 @@ open class KSTokenField: UITextField {
       scrollViewScrollToEnd()
       
 //      return CGPoint(x: tokenPosition.x + leftMargin, y: positionY)
-        let caretY = (lineNumber == 1) ? _selfFrame!.size.height: tokenPosition.y + tokenHeight
+        let caretY = (lineNumber == 1) ? _selfFrame!.size.height : min((tokenPosition.y + tokenHeight), maximumHeight - 5)
         return CGPoint(x: tokenPosition.x + leftMargin, y: caretY)
    }
    
