@@ -178,7 +178,7 @@ open class KSTokenView: UIView {
    }
    
    /// default is 110.0. After maximum limit is reached, tokens starts scrolling vertically
-   open var maximumHeight: CGFloat = 120.0 {
+   open var maximumHeight: CGFloat = 110.0 {
       didSet {
          _tokenField.maximumHeight = maximumHeight
       }
